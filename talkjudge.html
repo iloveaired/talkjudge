@@ -1,0 +1,48 @@
+<head>
+  <title>talkjudge</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+
+	  {{> header}}
+	  {{> talksList}}
+	  {{> newTalk}}
+  </div>
+
+</body>
+
+<template name="header">
+
+	<h2> Judge jsconf.asia talks</h2>
+	<hr />
+	{{> loginButtons}}
+	<hr />
+
+</template>
+
+<template name="talksList">
+  <ul>
+  	{{#each talks}}
+  	<li>
+  		<b>{{title}}</b>    by {{speaker}}
+  		({{votes}} votes)
+  		<input type="button" class="upvote" value="upvote" />
+  		<input type="button" class="downvote" value="downvote" />
+
+  		<input type="button" class="del" value="del" />
+
+  	</li>
+  	{{/each}}
+  
+  </ul>
+
+</template>
+<template name="newTalk">
+	<form class="form-inline newTalkForm">
+		Title : <input type="text" class="title" />
+		Speaker : <input type="text" class="speaker" />
+		<input type="submit" value="Add" />
+	</form>
+</template>
